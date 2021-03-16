@@ -1,13 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+namespace Kawado.Player
 {
-    // Start is called before the first frame update
-
-    void Update()
+    public class Player : MonoBehaviour
     {
 
+        Image _image;
+
+        public Transform UpdateTransform { get; set; }
+
+        void Awake()
+        {
+            Init();
+        }
+
+        void Init()
+        {
+            UpdateTransform = this.transform;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
@@ -7,9 +8,11 @@ namespace Kawado.Item
 {
     public class Item : MonoBehaviour
     {
-        string _key;
+        [field : SerializeField]
+        public string Key { get; set; }
 
-        int _score;
+        [field : SerializeField]
+        public int Score { get; private set; }
 
         Image _image;
 
@@ -30,17 +33,9 @@ namespace Kawado.Item
             }
             else if (other.gameObject.tag == "Player")
             {
-                _collisionSubject.OnNext((_key, _score));
+                _collisionSubject.OnNext((Key, Score));
                 Destroy(this.gameObject);
             }
         }
-
-        public void SetValue(string key, int score, Image image)
-        {
-            _key = key;
-            _score = score;
-            //_image = image;
-        }
-
     }
 }

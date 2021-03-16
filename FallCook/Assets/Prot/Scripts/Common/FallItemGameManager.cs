@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Kawado.Common
 {
-    public class FallItemGameManager : MonoBehaviour
+    public class FallItemGameManager : SingletonMonoBehaviour<FallItemGameManager>
     {
 
     }
