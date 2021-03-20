@@ -22,8 +22,11 @@ namespace Kawado.Item
         [SerializeField]
         string _playerTag;
 
-        readonly Subject < (string tKey, int tScore) > _collisionSubject = new Subject < (string tKey, int tScore) > ();
-        public IObservable < (string tKey, int tScore) > CollisionIObservable => _collisionSubject;
+        [SerializeField]
+        ItemSetting.ItemType _itemType;
+
+        readonly Subject < (ItemSetting.ItemType itemType, string tKey, int tScore) > _collisionSubject = new Subject < (ItemSetting.ItemType itemType, string tKey, int tScore) > ();
+        public IObservable < (ItemSetting.ItemType itemType, string tKey, int tScore) > CollisionIObservable => _collisionSubject;
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -33,7 +36,7 @@ namespace Kawado.Item
             }
             else if (other.gameObject.tag == "Player")
             {
-                _collisionSubject.OnNext((Key, Score));
+                _collisionSubject.OnNext((_itemType, Key, Score));
                 Destroy(this.gameObject);
             }
         }

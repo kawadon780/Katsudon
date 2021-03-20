@@ -6,7 +6,7 @@ namespace Kawado.Player
 {
     public static class PlayerSetting
     {
-        public enum Status
+        public enum CookedStatus
         {
             Empty,
             Katu,

@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace Kawado.Item
 {
-    public class ItemSetting
+    public static class ItemSetting
     {
-
+        public enum ItemType
+        {
+            katsu,
+            rice,
+        }
     }
 }
