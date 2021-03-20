@@ -7,9 +7,11 @@ namespace Kawado.Player
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField]
+        Image[] _image;
 
-        Image _image;
-
+        [SerializeField]
+        PlayerSetting.Status CookStatus;
         public Transform UpdateTransform { get; set; }
 
         void Awake()
@@ -21,5 +23,7 @@ namespace Kawado.Player
         {
             UpdateTransform = this.transform;
         }
+
+        Se
     }
 }

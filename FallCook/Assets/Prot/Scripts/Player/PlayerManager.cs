@@ -19,6 +19,8 @@ namespace Kawado.Player
 
         [SerializeField] Bounds bounds;
 
+        PlayerSetting.Status CookStatus;
+
         // 補間の強さ（0f～1f） 。0なら追従しない。1なら遅れなしに追従する。
         [SerializeField, Range(0f, 1f)] private float followStrength;
 
@@ -36,5 +38,11 @@ namespace Kawado.Player
             _player.UpdateTransform.position = Vector3.Lerp(transform.position, targetPos, followStrength);
         }
 
+        void Awake()
+        {
+            var ScoreKeisan = new Dictionary<PlayerSetting.Status, float>()
+                { { PlayerSetting.Status.Empty, 1 }, { PlayerSetting.Status.Katsudon, 1 }, { PlayerSetting.Status.Katu, 1 }, { PlayerSetting.Status.Rice, 1 }, { PlayerSetting.Status.Donkatsu, 1 }
+                };
+        }
     }
 }

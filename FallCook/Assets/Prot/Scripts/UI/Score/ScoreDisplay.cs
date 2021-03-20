@@ -16,5 +16,4 @@ public class ScoreDisplay : MonoBehaviour
         NowScore += score;
         ScoreText.text = NowScore.ToString();
     }
-
 }

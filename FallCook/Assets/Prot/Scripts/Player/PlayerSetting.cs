@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Kawado.Player
 {
-    public static class PlayerConsand
+    public static class PlayerSetting
     {
         public enum Status
         {
