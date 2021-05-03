@@ -14,12 +14,13 @@ namespace Kawado.Item
         [field : SerializeField]
         public int Score { get; private set; }
 
+        [SerializeField]
+        ItemConstant.Type Type;
+
         Image _image;
 
-        [SerializeField]
         string _destroyTag;
 
-        [SerializeField]
         string _playerTag;
 
         readonly Subject < (string tKey, int tScore) > _collisionSubject = new Subject < (string tKey, int tScore) > ();
@@ -36,6 +37,11 @@ namespace Kawado.Item
                 _collisionSubject.OnNext((Key, Score));
                 Destroy(this.gameObject);
             }
+        }
+
+        ItemConstant.Type GetItemType()
+        {
+            return Type;
         }
     }
 }

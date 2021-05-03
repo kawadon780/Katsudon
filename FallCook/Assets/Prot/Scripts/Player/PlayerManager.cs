@@ -24,8 +24,12 @@ namespace Kawado.Player
 
         Vector3 targetPos;
 
+        bool onPause;
+
         void Update()
         {
+            if (onPause) return;
+
             targetPos = Input.mousePosition;
 
             // X, Y座標の範囲を制限する
