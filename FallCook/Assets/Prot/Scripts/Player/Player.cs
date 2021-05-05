@@ -8,8 +8,8 @@ namespace Kawado.Player
     public class Player : MonoBehaviour
     {
 
-        [SerializeField]
-        Image _image;
+        [field : SerializeField]
+        public Image NowImage { get; set; }
 
         public Transform UpdateTransform { get; set; }
 
@@ -22,5 +22,6 @@ namespace Kawado.Player
         {
             UpdateTransform = this.transform;
         }
+
     }
 }

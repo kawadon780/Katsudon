@@ -14,12 +14,17 @@ public class Title : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_STANDALONE
         UnityEngine.Application.Quit();
+#else 
+        Application.Quit();
 #endif
+
     }
 
     void Update()
     {
+#if UNITY_EDITOR || UNITY_ANDROID
         if (Input.GetKey(KeyCode.Escape)) GameEnd();
+#endif
     }
 
 }

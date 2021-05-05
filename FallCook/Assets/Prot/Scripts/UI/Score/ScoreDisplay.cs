@@ -9,12 +9,9 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField]
     Text ScoreText;
 
-    public int NowScore { get; private set; }
-
-    public void Addition(int score)
+    public void SetScore(int score)
     {
-        NowScore += score;
-        ScoreText.text = NowScore.ToString();
+        ScoreText.text = score.ToString();
     }
 
 }

@@ -14,8 +14,8 @@ namespace Kawado.Item
         [field : SerializeField]
         public int Score { get; private set; }
 
-        [SerializeField]
-        ItemConstant.Type Type;
+        [field : SerializeField]
+        public ItemConstant.Type Type;
 
         Image _image;
 

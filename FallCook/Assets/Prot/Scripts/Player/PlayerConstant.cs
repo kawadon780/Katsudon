@@ -4,15 +4,19 @@ using UnityEngine;
 
 namespace Kawado.Player
 {
-    public static class PlayerConsand
+    public static class PlayerConstant
     {
         public enum Status
         {
             Empty,
-            Katu,
+            Katsu,
             Rice,
             Katsudon,
-            Donkatsu
+            Ricekatsu,
+
+            KatsuKatsu,
+
+            RiceRice
 
         }
     }
