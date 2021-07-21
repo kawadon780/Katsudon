@@ -1,0 +1,8 @@
+Keystore
+
+
+Alias
+aruaruaru
+
+Pass
+arupakadesu

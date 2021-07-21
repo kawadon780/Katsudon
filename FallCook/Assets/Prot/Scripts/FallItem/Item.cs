@@ -6,6 +6,8 @@ using UniRx;
 
 namespace Kawado.Item
 {
+    test1
+    test2
     public class Item : MonoBehaviour
     {
         [field : SerializeField]
