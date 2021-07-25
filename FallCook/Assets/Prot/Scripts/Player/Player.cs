@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,19 +7,20 @@ namespace Kawado.Player
     public class Player : MonoBehaviour
     {
 
-        Image _image;
-
+        [field : SerializeField]
+        public PlayerSetting.CookedStatus CookedStatus { private set; get; }
         public Transform UpdateTransform { get; set; }
+
+        [SerializeField]
+        Image _myDisplay;
 
         void Awake()
         {
-            Init();
-            test1;
-        }
 
-        void Init()
+        public void SetStatus(PlayerSetting.CookedStatus status, Image image)
         {
-            UpdateTransform = this.transform;
+            CookedStatus = status;
+            _myDisplay.sprite = image.sprite;
         }
     }sasasa[sa]
 }

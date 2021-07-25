@@ -8,10 +8,6 @@ namespace Kawado.Item
 {
     public class ItemManager : MonoBehaviour
     {
-
-        // [SerializeField]
-        // Item _item;
-
         [SerializeField]
         Transform _field;
 
@@ -23,23 +19,24 @@ namespace Kawado.Item
         Transform _defaultPosition;
 
         const string ItemName = "fallitem";
+
         int itemIndex;
 
-        [SerializeField]
-        ScoreDisplay _score;
+        readonly Subject < (ItemSetting.ItemType itemType, string tKey, int tScore) > _collisionSubject = new Subject < (ItemSetting.ItemType itemType, string tKey, int tScore) > ();
+        public IObservable < (ItemSetting.ItemType itemType, string tKey, int tScore) > CollisionIObservable => _collisionSubject;
 
         void Awake()
         {
             _fallItems = new Dictionary<string, Item>();
             var items = _items.GetItemList();
-            Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+            Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(collisionItem =>
             {
                 itemIndex++;
                 var instanceItem = Instantiate(items[GetRandomIndex(items.Length)], new Vector2(_defaultPosition.position.x + UnityEngine.Random.Range(-340.0f, 340.0f), _defaultPosition.position.y), Quaternion.identity, _field);
                 instanceItem.Key = ItemName + itemIndex.ToString();
-                ScoreUpdate(instanceItem);
                 instanceItem.gameObject.SetActive(true);
                 _fallItems.Add(instanceItem.Key, instanceItem);
+                UpdateColisionItem(instanceItem);
             }).AddTo(this);
         }
 
@@ -48,14 +45,12 @@ namespace Kawado.Item
             return UnityEngine.Random.Range(0, max);
         }
 
-        void ScoreUpdate(Item instanceItem)
+        void UpdateColisionItem(Item item)
         {
-            instanceItem.CollisionIObservable.Subscribe(colisionItem =>
+            item.CollisionIObservable.Subscribe(colisionItem =>
             {
-                _score.Addition(colisionItem.tScore);
+                _collisionSubject.OnNext((colisionItem.itemType, colisionItem.tKey, colisionItem.tScore));
             }).AddTo(this);
-        }
-        ssssss
-        sss
+     
     }
 }
