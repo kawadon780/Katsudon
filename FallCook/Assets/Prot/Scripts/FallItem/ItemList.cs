@@ -13,5 +13,9 @@ namespace Kawado.Item
         {
             return _items;
         }
+
+        s
+        asasa
+        
     }
 }

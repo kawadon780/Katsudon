@@ -36,6 +36,10 @@ namespace Kawado.Item
                 _collisionSubject.OnNext((Key, Score));
                 Destroy(this.gameObject);
             }
+
+            ddsdsdsd
+
+            asasdsa
         }
     }
 }
