@@ -16,13 +16,11 @@ namespace Kawado.Player
 
         void Awake()
         {
-            UpdateTransform = this.transform;
-        }
 
         public void SetStatus(PlayerSetting.CookedStatus status, Image image)
         {
             CookedStatus = status;
             _myDisplay.sprite = image.sprite;
         }
-    }
+    }sasasa[sa]
 }
