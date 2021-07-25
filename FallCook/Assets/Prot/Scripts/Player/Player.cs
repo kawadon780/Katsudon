@@ -15,11 +15,12 @@ namespace Kawado.Player
         void Awake()
         {
             Init();
+            test1;
         }
 
         void Init()
         {
             UpdateTransform = this.transform;
         }
-    }
+    }sasasa[sa]
 }
