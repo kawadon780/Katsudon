@@ -55,5 +55,7 @@ namespace Kawado.Item
                 _score.Addition(colisionItem.tScore);
             }).AddTo(this);
         }
+        ssssss
+        sss
     }
 }

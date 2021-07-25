@@ -22,5 +22,5 @@ namespace Kawado.Player
         {
             UpdateTransform = this.transform;
         }
-    }
+    }sasasa[sa]
 }
