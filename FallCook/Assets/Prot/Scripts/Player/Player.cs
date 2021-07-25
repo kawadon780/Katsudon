@@ -15,6 +15,7 @@ namespace Kawado.Player
         void Awake()
         {
             Init();
+            test1;
         }
 
         void Init()
