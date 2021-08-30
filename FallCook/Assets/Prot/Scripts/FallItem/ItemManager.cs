@@ -38,7 +38,7 @@ namespace Kawado.Item
         public void ItemGaneration()
         {
             var items = _items.GetItemList();
-            _intervalFall = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+            _intervalFall = Observable.Interval(TimeSpan.FromSeconds(0.3)).Subscribe(_ =>
             {
                 itemIndex++;
                 var instanceItem = Instantiate(items[GetRandomIndex(items.Length)], new Vector2(_defaultPosition.position.x + UnityEngine.Random.Range(-340.0f, 340.0f), _defaultPosition.position.y), Quaternion.identity, _field);
@@ -59,8 +59,17 @@ namespace Kawado.Item
             _intervalFall.Dispose();
         }
 
+        int beforeIndex;
         int GetRandomIndex(int max)
         {
+            var randomIndex = UnityEngine.Random.Range(0, max);
+
+            // MEMO:再抽選
+            if (randomIndex == beforeIndex)
+            {
+                randomIndex = UnityEngine.Random.Range(0, max);
+            }
+            beforeIndex = randomIndex;
             return UnityEngine.Random.Range(0, max);
         }
     }

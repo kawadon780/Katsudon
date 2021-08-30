@@ -40,7 +40,7 @@ namespace Kawado.Common
 
         Dictionary<PlayerConstant.Status, int> _point { get; set; } =
         new Dictionary<PlayerConstant.Status, int>()
-        { { PlayerConstant.Status.Katsu, 0 }, { PlayerConstant.Status.Rice, 0 }, { PlayerConstant.Status.Ricekatsu, 100 }, { PlayerConstant.Status.Katsudon, 300 }, { PlayerConstant.Status.KatsuKatsu, 150 }, { PlayerConstant.Status.RiceRice, 50 }
+        { { PlayerConstant.Status.Katsu, 0 }, { PlayerConstant.Status.Rice, 0 }, { PlayerConstant.Status.Ricekatsu, 150 }, { PlayerConstant.Status.Katsudon, 1500 }, { PlayerConstant.Status.KatsuKatsu, 200 }, { PlayerConstant.Status.RiceRice, -750 }
         };
 
         Dictionary<PlayerConstant.Status, int> _itemNum;
